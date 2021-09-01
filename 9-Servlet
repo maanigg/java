@@ -1,0 +1,48 @@
+
+//Name.html
+!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Name Initials</title>
+</head>
+<body>
+<form action="servlet1" method="post">
+<input type="text" name="name">Enter the name<br>
+<button type="submit">Go</button><br>
+</form>
+</body>
+</html>
+ 
+ 
+WebServlet("/Q9")
+public class Q9 extends HttpServlet {
+     
+   String initials(String name)
+   {
+   ​String init=Character.toString(name.charAt(0));
+   ​for(int i=1;i<name.length();i++)
+   ​{
+   ​​char c=name.charAt(i);
+   ​​if((c==' ')&&((i+1)!=name.length()))
+   ​​{
+   ​​​init+=Character.toString(name.charAt(i+1));
+   ​​}
+   ​​​
+   ​}
+   ​init=init.toUpperCase();
+   ​return init;
+   }
+​protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+​​// TODO Auto-generated method stub
+​​response.setContentType("text/html");
+​​String name=request.getParameter("name");
+​​///System.out.println("The initials are:"+initials(name));
+​​PrintWriter pw=response.getWriter();
+​​pw.println("<html><head><h1>"+initials(name)+"</h1></head></html>");
+​}
+​protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+​​doGet(request, response);
+​}
+ 
+}
