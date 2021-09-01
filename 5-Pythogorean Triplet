@@ -31,4 +31,18 @@ public class pythago {
 ​​}
 ​}
 }
+
+package hggd;
+import advmath.*;
+ 
+public class prog123 {
+​public static void main(String[] args)
+​{
+​​trig ob=new trig();
+​​ob.disp(30);
+​​pythago ob1=new pythago();
+​​ob1.disp1(40);​
+​}
+}
+
  
