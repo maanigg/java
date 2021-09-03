@@ -1,66 +1,61 @@
-//Package faculty_deatils
-package faculty_details;
  
-​​public class faculty {
-​int staffid;
-​String staffname;
-​String design;
-​int nosubj;
-​public faculty()
-​}
-​​
-public void faculty_getval(int staffid,String name,String desig,int subj)
-​{
-​this.staffid=staffid;
-​this.staffname=name;
-​this.design=desig;
-​this.nosubj=subj;
-​}
-​
-public void faculty_disp()
-​{
-​System.out.println("STAFF ID : "+staffid+"Staffname : "+staffname+" designation: "+design+" no of subjects taught : "+nosubj);
-​}}
+package student;
  
-//Package student_details
- 
-package stud_details;
- 
-public class student {
-​int USN;
-​String DeptName;
-​float m1,m2,m3;
+public class stud_details {
+​String USN, Dept_name, g1,g2,g3;
 ​double sgpa;
-​public student()
-​{}
 ​
-​public void student_getval(int usn,String d,float m1,float m2,float m3,double sgpa)
+​public stud_details(String u,String d,String gr1,String gr2,String gr3,double sg)
 ​{
-​​this.USN=usn;
-​​this.DeptName=d;
-​​this.m1=m1;
-​​this.m2=m2;
-​​this.m3=m3;
-​​this.sgpa=sgpa;
-​​}
-​public void student_disp()
-​{
-​​System.out.println("USN : "+USN+"DEPT : "+DeptName+" M1,M2,M3 : "+m1+","+m2+","+m3+" sgpa: "+sgpa);
+​​USN=u;
+​​Dept_name=d;
+​​g1=gr1;
+​​g2=gr2;
+​​g3=gr3;
+​​sgpa=sg;
 ​}
+​
+​public void display()
+​{
+​​System.out.println(" USN : "+ USN+"\n Department name :"+ Dept_name + "\n Grade 1 "+g1+"\n Grade 2 "+g2+"\n Grade 3 "+g3+"\n SGPA: "+sgpa);
+​}
+ 
 }
  
-//Main class
  
-import stud_details.student;
-import faculty_details.faculty;
+package staff;
  
-public class q2a {
-​public static void main(String[] args) {​
-student s1=new student();
-s1.student_getval(1234,"mahima", 99, 99, 100, 9.5);
-s1.student_disp();
-faculty f1=new faculty();
-f1.faculty_getval(23, "xyz", "proffessor", 5);
-f1.faculty_disp();
+public class staff_details {
+String Staffid, StaffName, Designation, subjects;
+​
+​public staff_details(String i,String n,String d,String s)
+{
+​​Staffid=i;
+​​StaffName=n;
+​​Designation=d;
+​​subjects=s;
 ​}
+​
+​public void display()
+​{
+​​System.out.println("\n Staffid:  "+Staffid+"\n StaffName "+StaffName+"\n Designation "+ Designation +"\n Subject handled "+subjects);
+​}
+​
+ 
 }
+ 
+ 
+import student.*;
+import staff.*;
+public class prog {
+​public static void main(String []args)
+​{
+​​stud_details s1 = new stud_details("1MS15CS148","CSE","S","A","S",9.70);
+​​s1.display();
+​​
+​​staff_details s2 = new staff_details("TE001","ABC","HOD", "Mathematics");
+​​s2.display();
+​}
+ 
+}
+ 
