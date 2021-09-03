@@ -1,54 +1,67 @@
-interface DataStructure{
-    public void push(int num);
-    public int pop();
-    public boolean isEmpty();
-    public boolean isFull();
+package javalab1;
+ 
+public interface DataStructure {
+​public void push(int num);
+   public int pop();
+   public boolean isEmpty();
+   public boolean isFull();
+ 
+​
+ 
 }
+ 
+package javalab1;
+ 
+import java.util.Scanner;
+ 
 class Stack implements DataStructure{
-    int a[]=new int[20];
-    int top=-1;
-    public void push(int num){
-        if(isFull())
-            System.out.println("Stack is Full.");
-        else a[++top]=num;
-    }
-    public int pop(){
-        if(isEmpty()){
-            System.out.println("Satck is Empty");
-            return -1;
-        }
-        else return a[top--];
-    }
-    public boolean isFull(){
-        if (top==a.length-1)
-            return true;
-        else return false;
-    }
-    public boolean isEmpty(){
-        if(top==-1)
-            return true;
-        else return false;
-    }
+   int a[]=new int[20];
+   int top=-1;
+   public void push(int num){
+       if(isFull())
+           System.out.println("Stack is Full.");
+       else a[++top]=num;
+   }
+   public int pop(){
+       if(isEmpty()){
+           System.out.println("Satck is Empty");
+           return -1;
+       }
+       else return a[top--];
+   }
+   public boolean isFull(){
+       if (top==a.length-1)
+           return true;
+       else return false;
+   }
+   public boolean isEmpty(){
+       if(top==-1)
+           return true;
+       else return false;
+   }
 }
-public class Main{
-    public static void main(String []arg){
-        System.out.println("Stack Operation");
-        Stack s=new Stack();
-        Scanner ob=new Scanner(System.in);
-        while(1){
-            System.out.println("Enter 1.Insert 2.Remove 3.Exit");
-            int c=ob.nextInt();
-            if(c==3) break;
-            switch(c){
-                case 1:System.out.println("Enter the number to be inserted");
-                       int num=ob.nextInt();
-                       s.push(num);
+ 
+public class Main {
+​public static void main(String []arg){
+       System.out.println("Stack Operation");
+       Stack s=new Stack();
+       Scanner ob=new Scanner(System.in);
+       while(true){
+           System.out.println("Enter 1.Insert 2.Remove 3.Exit");
+           int c=ob.nextInt();
+           if(c==3) break;
+           switch(c){
+               case 1:System.out.println("Enter the number to be inserted");
+                      int num=ob.nextInt();
+                      s.push(num);
+                      break;
+               case 2:int a=s.pop();
+                      if(a!=-1)
+                       System.out.println("Popped element :"+a);
                        break;
-                case 2:int a=s.pop();
-                       if(a!=-1)
-                        System.out.println("Popped element :"+a);
-                        break;
-            }
-                }}
-    }
+           }
+               }}
+ 
+ 
+}
  
